@@ -10,23 +10,16 @@ public class LeapYears {
 		if(isBeforeGregorianCalendar())
 			return false;
 		
-		if(isDivisibleBy400() || (isDivisibleBy4() && isNotDivisibleBy100()))
+		if(isDivisibleBy(400) || (isDivisibleBy(4) && !isDivisibleBy(100)))
 			return true;
 		else
 			return false;
 	}
-
-	private boolean isNotDivisibleBy100() {
-		return year % 100 != 0;
+	
+	private boolean isDivisibleBy(int divisor) {
+		return year % divisor == 0;
 	}
 
-	private boolean isDivisibleBy4() {
-		return year % 4 == 0;
-	}
-
-	private boolean isDivisibleBy400() {
-		return year % 400 == 0;
-	}
 
 	private boolean isBeforeGregorianCalendar() {
 		return year < 1582;
